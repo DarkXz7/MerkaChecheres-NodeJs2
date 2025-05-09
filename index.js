@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 // index.js
 const express = require('express');
 const app = express();
@@ -17,12 +17,12 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
     console.log(`Servidor escuchando en http://localhost:${port}`);
 });
-=======
+
 const exp = require('express')
 
 require('dotenv').config()
 const enrutamiento = require('./routes/router')
-const app = exp()
+
 app.use(exp.urlencoded({extended:false}))
 app.use(exp.json())
 app.use('/v1',enrutamiento)
@@ -31,4 +31,3 @@ app.set('view engine','ejs')
 app.listen(process.env.PORT,()=>{
     console.log ('servidor ejecuantaodse en el puerto '+process.env.PORT)
 })
->>>>>>> 34676fb (Primer commit)

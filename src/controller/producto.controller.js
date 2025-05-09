@@ -12,12 +12,13 @@ exports.consultar = async(req,res)=>{
 
 exports.addProduct = async(req,res)=>{
     try{
-        const productoIsRegistered = await dbProducto.findProducto({isbn:isbn});
+        const productoIsRegistered = await dbProducto.findProducto({isbn: req.body.isbn});
         if(productoIsRegistered){
             return res.status(400).json({error:"El producto ya existe"});
         }
         const producto = await dbProducto.createProductoRecord(req.body);
-        return res.status(200).json(mensaje:'Producto registrado con exito');
+        return res.status(200).json({ mensaje: 'Producto registrado con éxito' });
+
     }catch(error){
         console.log(error);
         return res.render('500', {error:error});
